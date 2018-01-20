@@ -3,7 +3,7 @@ const path = require('path');
 const cool = require('cool-ascii-faces');
 const pg = require('pg');
 
-const pool = new pg.Pool(process.env.DATABASE_URL);
+const pool = new pg.Pool();
 
 const PORT = process.env.PORT || 5000;
 
