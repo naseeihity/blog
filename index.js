@@ -10,6 +10,7 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+  .get('/', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend/build', 'index.html')))
   .get('/default', (req, res) => res.render('pages/index'))
   .get('/api', (req, res) => {
     res.json([{
