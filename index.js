@@ -6,17 +6,18 @@ const pg = require('pg');
 const PORT = process.env.PORT || 5000;
 
 express()
+  .use(express.static(path.join(__dirname, 'frontend/build')))
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/default', (req, res) => res.render('pages/index'))
   .get('/api', (req, res) => {
     res.json([{
       id: 1,
-      username: 'samsepi0l',
+      username: 'Coacoo',
     }, {
       id: 2,
-      username: 'D0loresH4ze',
+      username: 'React',
     }]);
   })
   .get('/cool', (req, res) => res.send(cool()))
