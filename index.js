@@ -10,6 +10,15 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .get('/api', (req, res) => {
+    res.json([{
+      id: 1,
+      username: 'samsepi0l',
+    }, {
+      id: 2,
+      username: 'D0loresH4ze',
+    }]);
+  })
   .get('/cool', (req, res) => res.send(cool()))
   .get('/db', (req, res) => {
     pg.connect(process.env.DATABASE_URL, (err, client, done) => {
