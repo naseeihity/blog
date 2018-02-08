@@ -16,7 +16,7 @@ app
   .get('/api', (req, res) => {
     res.json([{
       id: 1,
-      username: 'Coacoocece',
+      username: 'Hello',
     }, {
       id: 2,
       username: 'React',
