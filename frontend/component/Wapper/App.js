@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import styles from './App.css';
 
 class App extends Component {
   state = {users: []}
@@ -12,8 +12,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Users</h1>
+      <div className={styles.container}>
+        <h1>Coaco</h1>
         {this.state.users.map(user =>
           <div key={user.id}>{user.username}</div>
         )}
