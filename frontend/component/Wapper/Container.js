@@ -24,18 +24,7 @@ class Container extends Component {
     return (
       <div className={styles.container_main}>
         <div className={styles.container_box}>
-          <Paper className={styles.container_context} elevation={4}>
-            <div className={styles.demo}>
-              <h1>Coaco</h1>
-              <i className="material-icons md-dark">face</i>
-              {this.state.users.map(user => (
-                <div key={user.id}>{user.username}</div>
-              ))}
-              <Button variant="raised" color="primary">
-                Hello Material UI
-              </Button>
-            </div>
-          </Paper>
+          <Paper className={styles.container_context} elevation={5} />
         </div>
       </div>
     );
