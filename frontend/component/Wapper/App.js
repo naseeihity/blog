@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import Container from "./Container";
-import Ribbon from "./Ribbon";
+import Ribbon from "../Ribbon";
+import Nav from "../Header/Nav";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Ribbon />
+        <header>
+          <Nav />
+          <Ribbon />
+        </header>
         <Container />
       </div>
     );
