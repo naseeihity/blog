@@ -27,8 +27,6 @@
 .t_container {
   max-width: 960px;
   color: #fff;
-  padding-left: 35rem;
-  padding-right: 2rem;
   display: flex;
   margin: auto;
 }
