@@ -21,7 +21,13 @@ const styles = {
     flex: 1
   },
   bar: {
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    boxShadow: "none"
+  },
+  barFixed: {
+    backgroundColor: "#47717F",
+    position: "fixed",
+    top: 0
   },
   menuButton: {
     marginLeft: -12,
@@ -30,10 +36,24 @@ const styles = {
 };
 
 class MenuAppBar extends React.Component {
-  state = {
-    auth: true,
-    anchorEl: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      headerFixed: false,
+      auth: true,
+      anchorEl: null
+    };
+    this.changeHeader = this.changeHeader.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.changeHeader);
+  }
+
+  changeHeader() {
+    const isFixed = window.scrollY > 50;
+    this.setState({ headerFixed: isFixed });
+  }
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -48,9 +68,11 @@ class MenuAppBar extends React.Component {
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
+    const barClass = this.state.headerFixed ? classes.barFixed : classes.bar;
+
     return (
       <div className={classes.root}>
-        <AppBar position="static" className={classes.bar}>
+        <AppBar position="static" className={barClass}>
           <Toolbar>
             <IconButton
               className={classes.menuButton}
