@@ -32,6 +32,12 @@
   display: flex;
   margin: auto;
 }
+.t_title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2em;
+  font-weight: bold;
+}
 
 .t_sub {
   font-size: 1.513rem;
