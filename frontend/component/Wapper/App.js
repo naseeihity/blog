@@ -1,20 +1,8 @@
-import React, { Component } from "react";
-import Container from "./Container";
-import Ribbon from "../Ribbon";
-import Nav from "../Header/Nav";
+import React from "react";
+import JssContainer from "./JssContainer";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-          <Nav />
-          <Ribbon />
-        </div>
-        <Container />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return <JssContainer />;
+};
 
 export default App;
