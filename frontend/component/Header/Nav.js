@@ -1,6 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
@@ -9,31 +7,7 @@ import MenuIcon from "material-ui-icons/Menu";
 import AccountCircle from "material-ui-icons/AccountCircle";
 import Menu, { MenuItem } from "material-ui/Menu";
 
-const styles = {
-  root: {
-    flexGrow: 1,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%"
-  },
-  flex: {
-    flex: 1
-  },
-  bar: {
-    backgroundColor: "transparent",
-    boxShadow: "none"
-  },
-  barFixed: {
-    backgroundColor: "#47717F",
-    position: "fixed",
-    top: 0
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
-};
+import styles from "./header.css";
 
 class MenuAppBar extends React.Component {
   constructor(props) {
@@ -64,18 +38,19 @@ class MenuAppBar extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
-    const barClass = this.state.headerFixed ? classes.barFixed : classes.bar;
+    const barClass = this.state.headerFixed
+      ? styles.header_barFixed
+      : styles.header_bar;
 
     return (
-      <div className={classes.root}>
-        <AppBar position="static" className={barClass}>
+      <div className={styles.header_root}>
+        <AppBar className={barClass}>
           <Toolbar>
             <IconButton
-              className={classes.menuButton}
+              className={styles.header_menuButton}
               color="inherit"
               aria-label="Menu"
             >
@@ -84,10 +59,13 @@ class MenuAppBar extends React.Component {
             <Typography
               variant="title"
               color="inherit"
-              className={classes.flex}
+              className={styles.header_typography}
             >
               Coaco
             </Typography>
+            <IconButton color="inherit">
+              <AccountCircle />
+            </IconButton>
             {auth && (
               <div>
                 <IconButton
@@ -124,8 +102,4 @@ class MenuAppBar extends React.Component {
   }
 }
 
-MenuAppBar.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(MenuAppBar);
+export default MenuAppBar;

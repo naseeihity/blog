@@ -15,9 +15,9 @@ class Container extends Component {
   }
 
   componentDidMount() {
-    fetch("/api")
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
+    // fetch("/api")
+    //   .then(res => res.json())
+    //   .then(users => this.setState({ users }));
   }
 
   render() {
