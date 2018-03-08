@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import PostList from "./PostList";
+import React, { Component } from 'react';
+import PostList from './PostList';
 
 class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
     };
   }
 
   componentDidMount() {
-    fetch("/api")
+    fetch('/api')
       .then(res => res.json())
       .then(articles => this.setState({ data: articles }));
   }

@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const Post = props => {
-  const title = props.article.title;
-  const content = props.article.content;
+const Post = (props) => {
+  const { title, content } = props.article;
   return (
     <article>
       <h2>{title}</h2>
