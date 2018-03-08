@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import { create } from "jss";
 import JssProvider from "react-jss/lib/JssProvider";
 import { createGenerateClassName, jssPreset } from "material-ui/styles";

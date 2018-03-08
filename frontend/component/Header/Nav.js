@@ -4,7 +4,8 @@ import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
 import IconButton from "material-ui/IconButton";
 import MenuIcon from "material-ui-icons/Menu";
-import AccountCircle from "material-ui-icons/AccountCircle";
+import { AccountCircle, Edit } from "material-ui-icons";
+import GithubCircle from "mdi-react/GithubCircleIcon";
 import Menu, { MenuItem } from "material-ui/Menu";
 
 import styles from "./header.css";
@@ -64,10 +65,13 @@ class MenuAppBar extends React.Component {
               Coaco
             </Typography>
             <IconButton color="inherit">
-              <AccountCircle />
+              <GithubCircle className={styles.header_github} />
             </IconButton>
             {auth && (
               <div>
+                <IconButton color="inherit">
+                  <Edit />
+                </IconButton>
                 <IconButton
                   aria-owns={open ? "menu-appbar" : null}
                   aria-haspopup="true"

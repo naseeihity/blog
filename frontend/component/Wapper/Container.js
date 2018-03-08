@@ -1,30 +1,30 @@
 import React, { Component } from "react";
-import "./container.css";
 import Paper from "material-ui/Paper";
 import Typography from "material-ui/Typography";
-import Button from "material-ui/Button";
+import Posts from "../Posts/index";
 
 import styles from "./container.css";
 
 class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      users: []
-    };
-  }
-
-  componentDidMount() {
-    // fetch("/api")
-    //   .then(res => res.json())
-    //   .then(users => this.setState({ users }));
   }
 
   render() {
     return (
       <div className={styles.container_main}>
         <div className={styles.container_box}>
-          <Paper className={styles.container_context} elevation={5} />
+          <Paper className={styles.container_context} elevation={5}>
+            <Typography
+              align="center"
+              variant="button"
+              color="inherit"
+              className={styles.container_title}
+            >
+              LATEST POSTS
+            </Typography>
+            <Posts />
+          </Paper>
         </div>
       </div>
     );
