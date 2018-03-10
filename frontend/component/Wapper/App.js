@@ -1,8 +1,6 @@
-import React from "react";
-import JssContainer from "./JssContainer";
+import React from 'react';
+import JssContainer from './JssContainer';
 
-const App = () => {
-  return <JssContainer />;
-};
+const App = () => <JssContainer />;
 
 export default App;

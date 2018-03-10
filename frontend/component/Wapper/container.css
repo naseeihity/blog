@@ -5,14 +5,32 @@
 }
 
 .container_box {
-  max-width: 1150px;
-  width: calc(100% - 16px);
+  max-width: 1170px;
+  width: 90%;
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 1060px) {
+  .container_box {
+    max-width: 90%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .container_box {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .container_context {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
 .container_context {
-  min-height: 1488px;
-  padding: 120px 5%;
+  min-height: 300px;
+  padding: 120px 10%;
 }
 
 .container_title {

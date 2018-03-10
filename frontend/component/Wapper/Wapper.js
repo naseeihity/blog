@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Container from "./Container";
-import Ribbon from "../Ribbon";
-import Nav from "../Header/Nav";
+import React, { Component } from 'react';
+import Container from './Container';
+import Ribbon from '../Ribbon';
+import Nav from '../Header/Nav';
 
 class Wapper extends Component {
   render() {
