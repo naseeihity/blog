@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = new Express();
 
-const staticFileMiddleware = Express.static(path.join(__dirname, '../frontend/build'),);
+const staticFileMiddleware = Express.static(path.join(__dirname, '../frontend/build'));
 app
   .use(staticFileMiddleware)
   .set('views', path.join(__dirname, 'views'))

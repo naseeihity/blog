@@ -99,6 +99,21 @@
   line-height: 40px;
 }
 
+.post_content {
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 30px;
+}
+
+.post_footer {
+  margin-top: 90px;
+  text-align: right;
+}
+
+.post_footer_btn {
+  border: 1px solid #f50057;
+}
+
 @media only screen and (max-width: 767px) {
   .post_date {
     display: none;

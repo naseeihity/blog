@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
 
 import styles from './post.css';
 
@@ -22,12 +23,21 @@ const Post = (props) => {
             <span className={styles.post_author_name}>{author}</span>
           </div>
         </div>
-        <p>{content}</p>
         <div className={styles.post_date}>
           <span className={styles.post_date_day}>27</span>
           <span className={styles.post_date_month}>jul</span>
           &nbsp;-&nbsp;
           <span className={styles.post_date_year}>2018</span>
+        </div>
+        <p className={styles.post_content}>{content}</p>
+        <div className={styles.post_footer}>
+          <Button
+            color="secondary"
+            size="large"
+            className={styles.post_footer_btn}
+          >
+            read more
+          </Button>
         </div>
       </div>
     </article>
