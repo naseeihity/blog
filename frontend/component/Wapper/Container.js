@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-import Posts from '../Posts/index';
+import React, { Component } from "react";
+import Paper from "material-ui/Paper";
+import Typography from "material-ui/Typography";
+import Posts from "../Posts/index";
 
-import styles from './container.css';
+import styles from "./container.css";
 
 class Container extends Component {
   constructor(props) {
