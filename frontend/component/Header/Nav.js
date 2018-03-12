@@ -1,14 +1,14 @@
-import React from "react";
-import AppBar from "material-ui/AppBar";
-import Toolbar from "material-ui/Toolbar";
-import Typography from "material-ui/Typography";
-import IconButton from "material-ui/IconButton";
-import MenuIcon from "material-ui-icons/Menu";
-import { AccountCircle, Edit } from "material-ui-icons";
-import GithubCircle from "mdi-react/GithubCircleIcon";
-import Menu, { MenuItem } from "material-ui/Menu";
+import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from 'material-ui-icons/Menu';
+import { AccountCircle, Edit } from 'material-ui-icons';
+import GithubCircle from 'mdi-react/GithubCircleIcon';
+import Menu, { MenuItem } from 'material-ui/Menu';
 
-import styles from "./header.css";
+import styles from './header.css';
 
 class MenuAppBar extends React.Component {
   constructor(props) {
@@ -16,13 +16,13 @@ class MenuAppBar extends React.Component {
     this.state = {
       headerFixed: false,
       auth: true,
-      anchorEl: null
+      anchorEl: null,
     };
     this.changeHeader = this.changeHeader.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.changeHeader);
+    window.addEventListener('scroll', this.changeHeader);
   }
 
   changeHeader() {
@@ -30,7 +30,7 @@ class MenuAppBar extends React.Component {
     this.setState({ headerFixed: isFixed });
   }
 
-  handleMenu = event => {
+  handleMenu = (event) => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -73,7 +73,7 @@ class MenuAppBar extends React.Component {
                   <Edit />
                 </IconButton>
                 <IconButton
-                  aria-owns={open ? "menu-appbar" : null}
+                  aria-owns={open ? 'menu-appbar' : null}
                   aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
@@ -84,12 +84,12 @@ class MenuAppBar extends React.Component {
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right"
+                    vertical: 'top',
+                    horizontal: 'right',
                   }}
                   transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right"
+                    vertical: 'top',
+                    horizontal: 'right',
                   }}
                   open={open}
                   onClose={this.handleClose}
