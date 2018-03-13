@@ -12,10 +12,10 @@ const generateClassName = createGenerateClassName();
 const jss = create(jssPreset());
 jss.options.insertionPoint = 'insertion-point-jss';
 
-const JssContainer = () => (
+const JssWapper = () => (
   <JssProvider jss={jss} generateClassName={generateClassName}>
     <Wapper />
   </JssProvider>
 );
 
-export default JssContainer;
+export default JssWapper;

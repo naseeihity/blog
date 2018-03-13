@@ -1,11 +1,13 @@
 import React from 'react';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import { Link } from 'react-router-dom';
 
 import styles from './post.css';
 
-const Post = (props) => {
-  const { title, content, author } = props.article;
+const Post = props => {
+  const { title, content, author, number } = props.article;
+
   return (
     <article className={styles.post_wapper}>
       <div className={styles.post_detail}>
@@ -15,7 +17,7 @@ const Post = (props) => {
           color="inherit"
           className={styles.post_titile}
         >
-          {title}
+          <Link to={`/post/${number}`}>{title}</Link>
         </Typography>
         <div className={styles.post_info}>
           <div className={styles.post_author}>
@@ -36,7 +38,7 @@ const Post = (props) => {
             size="large"
             className={styles.post_footer_btn}
           >
-            read more
+            <Link to={`/post/${number}`}>read more</Link>
           </Button>
         </div>
       </div>
