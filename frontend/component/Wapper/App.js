@@ -1,6 +1,11 @@
 import React from 'react';
-import JssContainer from './JssContainer';
+import { BrowserRouter as Router } from 'react-router-dom';
+import JssWapper from './JssWapper';
 
-const App = () => <JssContainer />;
+const App = () => (
+  <Router>
+    <JssWapper />
+  </Router>
+);
 
 export default App;

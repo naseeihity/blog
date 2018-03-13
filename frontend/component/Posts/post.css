@@ -9,7 +9,7 @@
 }
 
 .post_detail::before {
-  content: "";
+  content: '';
   height: 100%;
   position: absolute;
   width: 1px;
@@ -29,6 +29,11 @@
 
 .post_titile:hover {
   color: #009688;
+}
+
+.post_wapper a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .post_info {
@@ -64,7 +69,7 @@
 }
 
 .post_date::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 11px;
   width: 11px;
@@ -100,9 +105,27 @@
 }
 
 .post_content {
+  position: relative;
   margin-bottom: 10px;
   color: #444;
+  height: 120px;
   line-height: 30px;
+  overflow: hidden;
+}
+
+.post_content::after {
+  content: '';
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 30px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 50%
+  );
 }
 
 .post_footer {
@@ -127,4 +150,87 @@
   .post_detail::before {
     display: none;
   }
+}
+
+.post_title {
+  position: relative;
+  margin: 0 0 70px;
+  padding-bottom: 30px;
+}
+
+.post_title::after {
+  content: '';
+  height: 1px;
+  width: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -25px;
+  background: #333;
+  background: rgba(51, 51, 51, 0.2);
+}
+
+.post_paginate {
+  display: block;
+  padding: 10px 0 25px;
+  text-align: left;
+}
+
+.post_paginate ul {
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.post_paginate li {
+  display: inline-block;
+}
+
+.post_paginate_active a {
+  color: #fff;
+  background: #52c7b8;
+}
+
+.post_paginate a {
+  display: block;
+  float: left;
+  margin-right: 6px;
+  padding: 0 18px;
+  border: 1px solid #009688;
+  text-transform: uppercase;
+  line-height: 40px;
+  font-weight: 700;
+  color: #333;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.post_paginate a:hover,
+.post_paginate a:active {
+  color: #fff;
+  background: #52c7b8;
+}
+
+.post_paginate_icon {
+  width: 20px;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+}
+
+.post_paginate_disabled a {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  cursor: default;
+}
+
+.post_paginate_disabled svg {
+  color: #eee;
+}
+
+.post_paginate_disabled:hover a {
+  background-color: #ccc;
+  border: 1px solid #ccc;
 }

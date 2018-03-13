@@ -1,63 +1,57 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
+import { Route } from 'react-router-dom';
+import Ribbon from '../Ribbon';
 import Posts from '../Posts/index';
-import ReactPaginate from 'react-paginate';
-import { NavigateNext, NavigateBefore } from 'material-ui-icons';
+import Article from '../Aritcle/Article';
 
 import styles from './container.css';
 
 class Container extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      articles: []
+    };
+    this.getPostDetail = this.getPostDetail.bind(this);
   }
 
-  handlePageClick() {
-    console.log(this);
+  componentDidMount() {
+    // fetch('/api')
+    //   .then(res => res.json())
+    //   .then(articles => this.setState({ articles }));
+    fetch('https://api.github.com/repos/naseeihity/LearnToLearn/issues')
+      .then(res => res.json())
+      .then(articles => this.setState({ articles: articles.slice(0, 9) }));
+  }
+
+  getPostDetail(num) {
+    const { articles } = this.state;
+    const artic = articles.find(article => num === String(article.number));
+    return artic;
   }
 
   render() {
     return (
-      <div className={styles.container_main}>
-        <div className={styles.container_box}>
-          <Paper className={styles.container_context} elevation={5}>
-            <Typography
-              align="center"
-              variant="button"
-              color="inherit"
-              className={styles.container_title}
-            >
-              LATEST POSTS
-            </Typography>
-            <Posts />
-            <div className={styles.container_paginate}>
-              <ReactPaginate
-                previousLabel={
-                  <NavigateBefore
-                    viewBox={'0 0 25 25'}
-                    className={styles.container_paginate_icon}
-                  />
-                }
-                nextLabel={
-                  <NavigateNext
-                    viewBox={'0 0 25 25'}
-                    className={styles.container_paginate_icon}
-                  />
-                }
-                breakLabel={<a href="">...</a>}
-                breakClassName={'break-me'}
-                activeClassName={styles.container_paginate_active}
-                pageCount={15}
-                initialPage={0}
-                marginPagesDisplayed={1}
-                pageRangeDisplayed={3}
-                onPageChange={this.handlePageClick}
-                containerClassName={'pagination'}
-                disabledClassName={styles.container_paginate_disabled}
-                subContainerClassName={'pages pagination'}
+      <div>
+        <Ribbon />
+        <div className={styles.container_main}>
+          <div className={styles.container_box}>
+            <Paper className={styles.container_context} elevation={5}>
+              <Route
+                exact
+                path="/"
+                render={() => <Posts articles={this.state.articles} />}
               />
-            </div>
-          </Paper>
+              <Route
+                path="/post/:number"
+                render={({ match }) => {
+                  const post = this.getPostDetail(match.params.number);
+                  return <Article post={post} />;
+                }}
+              />
+            </Paper>
+          </div>
         </div>
       </div>
     );
