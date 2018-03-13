@@ -14,17 +14,12 @@ class Posts extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('/api')
-      .then(res => res.json())
-      .then(articles => this.setState({ data: articles }));
-  }
-
   handlePageClick() {
     console.log(this);
   }
 
   render() {
+    const { articles } = this.props;
     return (
       <div>
         <Typography
@@ -35,7 +30,7 @@ class Posts extends Component {
         >
           LATEST POSTS
         </Typography>
-        <PostList articles={this.state.data} />
+        <PostList articles={articles} />
         <div className={styles.post_paginate}>
           <ReactPaginate
             previousLabel={
