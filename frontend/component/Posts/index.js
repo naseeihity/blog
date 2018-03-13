@@ -12,10 +12,11 @@ class Posts extends Component {
     this.state = {
       data: []
     };
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   handlePageClick() {
-    console.log(this);
+    // TODO
   }
 
   render() {

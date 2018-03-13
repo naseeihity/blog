@@ -17,9 +17,12 @@ class Container extends Component {
   }
 
   componentDidMount() {
-    fetch('/api')
+    // fetch('/api')
+    //   .then(res => res.json())
+    //   .then(articles => this.setState({ articles }));
+    fetch('https://api.github.com/repos/naseeihity/LearnToLearn/issues')
       .then(res => res.json())
-      .then(articles => this.setState({ articles }));
+      .then(articles => this.setState({ articles: articles.slice(0, 9) }));
   }
 
   getPostDetail(num) {

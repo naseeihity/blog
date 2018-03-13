@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import styles from './post.css';
 
 const Post = props => {
-  const { title, content, author, number } = props.article;
+  const { title, body, user, number } = props.article;
+  const content = body.slice(0, 300);
+  const author = user.login;
 
   return (
     <article className={styles.post_wapper}>

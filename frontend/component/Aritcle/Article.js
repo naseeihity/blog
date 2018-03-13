@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 class Article extends Component {
   constructor(props) {
@@ -6,7 +7,11 @@ class Article extends Component {
   }
 
   render() {
-    return <div>{this.props.post.content}</div>;
+    // TODO： add 404 page
+    const { post } = this.props;
+    return (
+      <div>{post ? <ReactMarkdown source={post.body} /> : 'Loading……'}</div>
+    );
   }
 }
 

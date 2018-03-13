@@ -24,7 +24,7 @@ app
         title: 'Movies makes life much longer and better',
         author: 'Coaoc',
         content:
-          "A fellow will remember a lot of things you wouldn't think he'd remember.You take me. One day, back in 1896, I was crossing over to Jersey on the ferry, and as we pulled out, there was a girl waiting to get off.A white dresss she had on.She was carrying a white parasol.I only saw her for one second.She didn't see me at all,but I'll bet a month hasn't gone by since,that I haven't thought of that girl."
+          "A fellow **will** remember a lot of things you wouldn't think he'd remember.You take me. One day, back in 1896, I was crossing over to Jersey on the ferry, and as we pulled out, there was a girl waiting to get off.A white dresss she had on.She was carrying a white parasol.I only saw her for one second.She didn't see me at all,but I'll bet a month hasn't gone by since,that I haven't thought of that girl."
       },
       {
         id: 1,

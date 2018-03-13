@@ -105,9 +105,27 @@
 }
 
 .post_content {
+  position: relative;
   margin-bottom: 10px;
   color: #444;
+  height: 120px;
   line-height: 30px;
+  overflow: hidden;
+}
+
+.post_content::after {
+  content: '';
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 30px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 50%
+  );
 }
 
 .post_footer {
