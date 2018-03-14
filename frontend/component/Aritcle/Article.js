@@ -4,6 +4,13 @@ import ReactMarkdown from 'react-markdown';
 class Article extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentPost: props.post
+    };
+  }
+
+  componentDidMount() {
+    this.props.postOpened(this.state.currentPost);
   }
 
   render() {

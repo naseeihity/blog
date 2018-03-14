@@ -11,9 +11,11 @@ class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: []
+      articles: [],
+      currentArticle: null
     };
     this.getPostDetail = this.getPostDetail.bind(this);
+    this.postOpened = this.postOpened.bind(this);
   }
 
   componentDidMount() {
@@ -31,10 +33,14 @@ class Container extends Component {
     return artic;
   }
 
+  postOpened(article) {
+    this.setState({ currentArticle: article });
+  }
+
   render() {
     return (
       <div>
-        <Ribbon />
+        <Ribbon curArticle={this.state.currentArticle} />
         <div className={styles.container_main}>
           <div className={styles.container_box}>
             <Paper className={styles.container_context} elevation={5}>
@@ -47,7 +53,12 @@ class Container extends Component {
                 path="/post/:number"
                 render={({ match }) => {
                   const post = this.getPostDetail(match.params.number);
-                  return <Article post={post} />;
+                  return (
+                    <Article
+                      post={post}
+                      postOpened={article => this.postOpened(article)}
+                    />
+                  );
                 }}
               />
             </Paper>

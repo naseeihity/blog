@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import JssWapper from './JssWapper';
+import ScrollToTop from '../utils/ScrollToTop';
 
 const App = () => (
   <Router>
-    <JssWapper />
+    <ScrollToTop>
+      <JssWapper />
+    </ScrollToTop>
   </Router>
 );
 
