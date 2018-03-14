@@ -9,6 +9,11 @@
   flex: 1;
 }
 
+.header_typography a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .header_bar {
   background-color: transparent;
   box-shadow: none;
@@ -26,4 +31,8 @@
 
 .header_github {
   fill: #fff;
+}
+
+.header_link {
+  line-height: 0;
 }

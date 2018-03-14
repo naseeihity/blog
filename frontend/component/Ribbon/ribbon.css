@@ -1,12 +1,24 @@
 .ribbon {
   width: 100%;
   height: 80vh;
-  background: url(./ribbon.jpg) center / cover;
   background-color: #303135;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
+
+/* .ribbon::before {
+  width: 100%;
+  height: 80vh;
+  background: url(./ribbon.jpg) center / cover;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+} */
 
 .t_container {
   max-width: 960px;
@@ -17,12 +29,13 @@
 .t_title {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-size: 2em;
+  font-size: 1.7em;
+  line-height: 1.2;
   font-weight: bold;
-  text-shadow: 3px 1px 1px #000;
+  text-shadow: 1px 1px 6px #333;
 }
 
 .t_sub {
-  font-size: 1.513rem;
+  font-size: 1.2rem;
   font-weight: lighter;
 }

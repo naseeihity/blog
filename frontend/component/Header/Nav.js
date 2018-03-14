@@ -7,6 +7,7 @@ import MenuIcon from 'material-ui-icons/Menu';
 import { AccountCircle, Edit } from 'material-ui-icons';
 import GithubCircle from 'mdi-react/GithubCircleIcon';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import { Link } from 'react-router-dom';
 
 import styles from './header.css';
 
@@ -16,7 +17,7 @@ class MenuAppBar extends React.Component {
     this.state = {
       headerFixed: false,
       auth: true,
-      anchorEl: null,
+      anchorEl: null
     };
     this.changeHeader = this.changeHeader.bind(this);
   }
@@ -30,7 +31,7 @@ class MenuAppBar extends React.Component {
     this.setState({ headerFixed: isFixed });
   }
 
-  handleMenu = (event) => {
+  handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -62,10 +63,15 @@ class MenuAppBar extends React.Component {
               color="inherit"
               className={styles.header_typography}
             >
-              Coaco
+              <Link to="/">Coaco</Link>
             </Typography>
             <IconButton color="inherit">
-              <GithubCircle className={styles.header_github} />
+              <a
+                href="https://github.com/naseeihity/blog"
+                className={styles.header_link}
+              >
+                <GithubCircle className={styles.header_github} />
+              </a>
             </IconButton>
             {auth && (
               <div>
@@ -85,11 +91,11 @@ class MenuAppBar extends React.Component {
                   anchorEl={anchorEl}
                   anchorOrigin={{
                     vertical: 'top',
-                    horizontal: 'right',
+                    horizontal: 'right'
                   }}
                   transformOrigin={{
                     vertical: 'top',
-                    horizontal: 'right',
+                    horizontal: 'right'
                   }}
                   open={open}
                   onClose={this.handleClose}
