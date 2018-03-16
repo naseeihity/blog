@@ -3,12 +3,21 @@ import ReactMarkdown from 'react-markdown';
 
 import styles from './markdown.css';
 
+const { Prism } = window;
 class Article extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentPost: props.article
     };
+    this.Prism = Prism;
+  }
+
+  componentDidMount() {
+    this.Prism.highlightAll();
+  }
+  componentDidUpdate() {
+    this.Prism.highlightAll();
   }
 
   render() {
