@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
 
+import styles from './markdown.css';
+
 class Article extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,11 @@ class Article extends Component {
     const { article } = this.props;
     return (
       <div>
-        {article ? <ReactMarkdown source={article.body} /> : 'Loading……'}
+        {article ? (
+          <ReactMarkdown className={styles.typo} source={article.body} />
+        ) : (
+          'Loading……'
+        )}
       </div>
     );
   }

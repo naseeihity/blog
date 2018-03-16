@@ -22,7 +22,7 @@ class ArticlePage extends Component {
     const curArticle = this.getPostDetail(this.props.postNum);
     return (
       <div>
-        <Ribbon curArticle={curArticle} />
+        <Ribbon curArticle={curArticle} hasSub={false} />
         <div className={styles.container_main}>
           <div className={styles.container_box}>
             <Paper className={styles.container_context} elevation={5}>

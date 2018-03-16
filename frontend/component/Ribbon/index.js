@@ -11,7 +11,7 @@ class Ribbon extends Component {
     super(props);
     this.state = {
       title: props.curArticle ? props.curArticle.title : TITLE,
-      hasSub: true
+      hasSub: props.hasSub
     };
   }
 
@@ -20,7 +20,7 @@ class Ribbon extends Component {
       nextProps.curArticle &&
       !Object.is(nextProps.curArticle, this.props.curArticle)
     ) {
-      this.setState({ title: nextProps.curArticle.title, hasSub: false });
+      this.setState({ title: nextProps.curArticle.title });
     }
   }
 
