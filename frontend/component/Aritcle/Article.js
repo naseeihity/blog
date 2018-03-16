@@ -5,19 +5,17 @@ class Article extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPost: props.post
+      currentPost: props.article
     };
-  }
-
-  componentDidMount() {
-    this.props.postOpened(this.state.currentPost);
   }
 
   render() {
     // TODO： add 404 page
-    const { post } = this.props;
+    const { article } = this.props;
     return (
-      <div>{post ? <ReactMarkdown source={post.body} /> : 'Loading……'}</div>
+      <div>
+        {article ? <ReactMarkdown source={article.body} /> : 'Loading……'}
+      </div>
     );
   }
 }
