@@ -3,7 +3,6 @@ import moment from 'moment';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import { Link } from 'react-router-dom';
-
 import styles from './post.css';
 
 const Post = props => {
@@ -37,6 +36,7 @@ const Post = props => {
           &nbsp;-&nbsp;
           <span className={styles.post_date_year}>{year}</span>
         </div>
+
         <p className={styles.post_content}>{content}</p>
         <div className={styles.post_footer}>
           <Button

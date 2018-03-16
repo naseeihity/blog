@@ -10,8 +10,8 @@ class Ribbon extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: props.curTitle ? props.curTitle.title : TITLE,
-      hasSub: true
+      title: props.curArticle ? props.curArticle.title : TITLE,
+      hasSub: props.hasSub
     };
   }
 
@@ -20,9 +20,7 @@ class Ribbon extends Component {
       nextProps.curArticle &&
       !Object.is(nextProps.curArticle, this.props.curArticle)
     ) {
-      this.setState({ title: nextProps.curArticle.title, hasSub: false });
-    } else {
-      this.setState({ title: TITLE, hasSub: true });
+      this.setState({ title: nextProps.curArticle.title });
     }
   }
 
