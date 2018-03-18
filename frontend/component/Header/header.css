@@ -19,7 +19,8 @@
   box-shadow: none;
 }
 .header_barFixed {
-  background-color: rgba(33, 33, 33, 0.9);
+  /* background-color: rgba(64, 147, 136, 0.98); */
+  background-color: rgba(237, 55, 74, 0.95);
   position: fixed;
   top: 0;
 }

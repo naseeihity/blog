@@ -2,9 +2,9 @@ import React from 'react';
 import Post from './Post';
 
 const PostList = props => (
-  <ul>
+  <div>
     {props.articles.map(article => <Post key={article.id} article={article} />)}
-  </ul>
+  </div>
 );
 
 export default PostList;

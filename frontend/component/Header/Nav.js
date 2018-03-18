@@ -27,7 +27,7 @@ class MenuAppBar extends React.Component {
   }
 
   changeHeader() {
-    const isFixed = window.scrollY > 50;
+    const isFixed = window.scrollY > 250;
     this.setState({ headerFixed: isFixed });
   }
 
