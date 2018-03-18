@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import PostPage from '../Posts/PostPage';
 import ArticlePage from '../Aritcle/ArticlePage';
 
@@ -8,6 +8,7 @@ class Container extends Component {
     super(props);
     this.state = {
       articles: [],
+      total: 0,
       currentArticle: null
     };
   }
@@ -18,26 +19,39 @@ class Container extends Component {
     //   .then(articles => this.setState({ articles }));
     fetch('https://api.github.com/repos/naseeihity/LearnToLearn/issues')
       .then(res => res.json())
-      .then(articles => this.setState({ articles: articles.slice(0, 9) }));
+      .then(articles =>
+        this.setState({
+          articles,
+          total: articles.length
+        })
+      );
   }
 
   render() {
     return (
       <div>
-        <Route
-          exact
-          path="/"
-          render={() => <PostPage articles={this.state.articles} />}
-        />
-        <Route
-          path="/post/:number"
-          render={({ match }) => (
-            <ArticlePage
-              postNum={match.params.number}
-              articles={this.state.articles}
-            />
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <PostPage total={this.state.total} />}
+          />
+          <Route
+            path="/pages/:page"
+            render={({ match }) => (
+              <PostPage total={this.state.total} match={match} />
+            )}
+          />
+          <Route
+            path="/post/:number"
+            render={({ match }) => (
+              <ArticlePage
+                postNum={match.params.number}
+                articles={this.state.articles}
+              />
+            )}
+          />
+        </Switch>
       </div>
     );
   }

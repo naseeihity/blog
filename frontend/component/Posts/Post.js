@@ -14,41 +14,43 @@ const Post = props => {
   const day = moment(updated_at).date();
 
   return (
-    <article className={styles.post_wapper}>
-      <div className={styles.post_detail}>
-        <Typography
-          align="left"
-          variant="title"
-          color="inherit"
-          className={styles.post_titile}
-        >
-          <Link to={`/post/${number}`}>{title}</Link>
-        </Typography>
-        <div className={styles.post_info}>
-          <div className={styles.post_author}>
-            By&nbsp;
-            <span className={styles.post_author_name}>{author}</span>
+    <div className={styles.post}>
+      <article className={styles.post_wapper}>
+        <div className={styles.post_detail}>
+          <Typography
+            align="left"
+            variant="title"
+            color="inherit"
+            className={styles.post_titile}
+          >
+            <Link to={`/post/${number}`}>{title}</Link>
+          </Typography>
+          <div className={styles.post_info}>
+            <div className={styles.post_author}>
+              By&nbsp;
+              <span className={styles.post_author_name}>{author}</span>
+            </div>
+          </div>
+          <div className={styles.post_date}>
+            <span className={styles.post_date_day}>{day}</span>
+            <span className={styles.post_date_month}>{month}</span>
+            &nbsp;-&nbsp;
+            <span className={styles.post_date_year}>{year}</span>
+          </div>
+
+          <p className={styles.post_content}>{content}</p>
+          <div className={styles.post_footer}>
+            <Button
+              color="secondary"
+              size="large"
+              className={styles.post_footer_btn}
+            >
+              <Link to={`/post/${number}`}>read more</Link>
+            </Button>
           </div>
         </div>
-        <div className={styles.post_date}>
-          <span className={styles.post_date_day}>{day}</span>
-          <span className={styles.post_date_month}>{month}</span>
-          &nbsp;-&nbsp;
-          <span className={styles.post_date_year}>{year}</span>
-        </div>
-
-        <p className={styles.post_content}>{content}</p>
-        <div className={styles.post_footer}>
-          <Button
-            color="secondary"
-            size="large"
-            className={styles.post_footer_btn}
-          >
-            <Link to={`/post/${number}`}>read more</Link>
-          </Button>
-        </div>
-      </div>
-    </article>
+      </article>
+    </div>
   );
 };
 

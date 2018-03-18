@@ -22,6 +22,11 @@ SOFTWARE. */
 
 @charset "utf-8";
 
+.typo {
+  width: 78%;
+  margin: 0 auto;
+}
+
 /* 块/段落引用 */
 .typo blockquote {
   position: relative;
@@ -33,6 +38,10 @@ SOFTWARE. */
 }
 
 @media only screen and (max-width: 640px) {
+  .typo {
+    width: 100%;
+  }
+
   .typo blockquote {
     margin: 1em 0;
   }

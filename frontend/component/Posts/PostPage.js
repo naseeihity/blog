@@ -11,7 +11,7 @@ const PostPage = props => (
     <div className={styles.container_main}>
       <div className={styles.container_box}>
         <Paper className={styles.container_context} elevation={5}>
-          <Posts articles={props.articles} />
+          <Posts total={props.total} />
         </Paper>
       </div>
     </div>
