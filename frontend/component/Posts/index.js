@@ -15,16 +15,20 @@ class Posts extends Component {
       articles: [],
       currentPage: 1,
       pageSize: 4,
-      pageCount: props.total || 1,
+      pageCount: 1,
       loading: true
     };
     this.getArticles = this.getArticles.bind(this);
   }
 
   componentDidMount() {
-    const { articles, pageCount } = this.state;
-    const page = this.props.match ? this.props.match.params.page : 1;
-    if (articles.length === 0 && page <= pageCount) {
+    const { articles, pageSize } = this.state;
+    const { total } = this.props;
+    const page = this.props.match && this.props.match.params.page;
+    if (
+      articles.length === 0 &&
+      (!page || page <= Math.ceil(total / pageSize))
+    ) {
       this.getArticles(page);
     }
   }
@@ -41,7 +45,7 @@ class Posts extends Component {
     }
   }
 
-  getArticles(page, pageSize) {
+  getArticles(page = 1, pageSize) {
     const opts = {
       per_page: pageSize || this.state.pageSize,
       page: page || this.props.match.params.page
@@ -56,6 +60,7 @@ class Posts extends Component {
       .then(articles =>
         this.setState({
           articles,
+          pageCount: Math.ceil(this.props.total / this.state.pageSize),
           currentPage: opts.page
         })
       );
