@@ -34,7 +34,9 @@ class Container extends Component {
           <Route
             exact
             path="/"
-            render={() => <PostPage total={this.state.total} />}
+            render={({ match }) => (
+              <PostPage total={this.state.total} match={match} />
+            )}
           />
           <Route
             path="/pages/:page"

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Typography from 'material-ui/Typography';
 import { NavigateNext, NavigateBefore } from 'material-ui-icons';
-import ReactPaginate from 'react-paginate';
 import qs from 'query-string';
 import { Link } from 'react-router-dom';
+import PaginationBoxView from '../utils/paginate';
 import PostList from './PostList';
 
 import styles from './post.css';
@@ -14,15 +14,23 @@ class Posts extends Component {
     this.state = {
       articles: [],
       currentPage: 1,
-      pageSize: 5,
-      pageCount: props.total || 1
+      pageSize: 4,
+      pageCount: 1,
+      loading: true
     };
-    this.handlePageClick = this.handlePageClick.bind(this);
     this.getArticles = this.getArticles.bind(this);
   }
 
   componentDidMount() {
-    this.getArticles();
+    const { articles, pageSize } = this.state;
+    const { total } = this.props;
+    const page = this.props.match && this.props.match.params.page;
+    if (
+      articles.length === 0 &&
+      (!page || page <= Math.ceil(total / pageSize))
+    ) {
+      this.getArticles(page);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,13 +39,16 @@ class Posts extends Component {
         pageCount: Math.ceil(nextProps.total / this.state.pageSize)
       });
     }
+
+    if (nextProps.match && !Object.is(nextProps.match, this.props.match)) {
+      this.getArticles(nextProps.match.params.page);
+    }
   }
 
-  getArticles(page, pageSize) {
-    // TODO: get page from url param
+  getArticles(page = 1, pageSize) {
     const opts = {
       per_page: pageSize || this.state.pageSize,
-      page: page || this.state.currentPage
+      page: page || this.props.match.params.page
     };
 
     fetch(
@@ -48,21 +59,15 @@ class Posts extends Component {
       .then(res => res.json())
       .then(articles =>
         this.setState({
-          articles
+          articles,
+          pageCount: Math.ceil(this.props.total / this.state.pageSize),
+          currentPage: opts.page
         })
       );
   }
 
-  handlePageClick(page) {
-    // TODO
-    this.setState({ currentPage: page.selected + 1 });
-    this.getArticles(page.selected + 1);
-    window.scrollTo(0, 0);
-  }
-
   render() {
-    // TODO: Rewrite ReactPaginate with a LinkComponent props
-    const { articles, pageCount } = this.state;
+    const { articles, pageCount, currentPage } = this.state;
     return (
       <div>
         <Typography
@@ -75,33 +80,32 @@ class Posts extends Component {
         </Typography>
         <PostList articles={articles} />
         <div className={styles.post_paginate}>
-          <Link to={`/pages/${this.state.currentPage}`}>
-            <ReactPaginate
-              previousLabel={
-                <NavigateBefore
-                  viewBox={'0 0 25 25'}
-                  className={styles.post_paginate_icon}
-                />
-              }
-              nextLabel={
-                <NavigateNext
-                  viewBox={'0 0 25 25'}
-                  className={styles.post_paginate_icon}
-                />
-              }
-              breakLabel={<a href="">...</a>}
-              breakClassName={'break-me'}
-              activeClassName={styles.post_paginate_active}
-              pageCount={pageCount}
-              initialPage={0}
-              marginPagesDisplayed={1}
-              pageRangeDisplayed={3}
-              onPageChange={this.handlePageClick}
-              containerClassName={'pagination'}
-              disabledClassName={styles.post_paginate_disabled}
-              subContainerClassName={'pages pagination'}
-            />
-          </Link>
+          <PaginationBoxView
+            to="/pages"
+            previousLabel={
+              <NavigateBefore
+                viewBox={'0 0 25 25'}
+                className={styles.post_paginate_icon}
+              />
+            }
+            nextLabel={
+              <NavigateNext
+                viewBox={'0 0 25 25'}
+                className={styles.post_paginate_icon}
+              />
+            }
+            breakLabel={<Link to="/pages">...</Link>}
+            breakClassName={'break-me'}
+            activeClassName={styles.post_paginate_active}
+            pageCount={pageCount}
+            initialPage={0}
+            forcePage={currentPage - 1}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={3}
+            containerClassName={'pagination'}
+            disabledClassName={styles.post_paginate_disabled}
+            subContainerClassName={'pages pagination'}
+          />
         </div>
       </div>
     );
