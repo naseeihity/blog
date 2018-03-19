@@ -222,17 +222,14 @@
   display: block;
 }
 
-.post_paginate_disabled a {
-  background-color: #ccc;
-  border: 1px solid #ccc;
-  cursor: default;
+.post_paginate .post_paginate_disabled {
+  display: none;
 }
 
-.post_paginate_disabled svg {
-  color: #eee;
+.post_show {
+  display: block;
 }
 
-.post_paginate_disabled:hover a {
-  background-color: #ccc;
-  border: 1px solid #ccc;
+.post_hide {
+  display: none;
 }
