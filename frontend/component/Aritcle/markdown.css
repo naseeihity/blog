@@ -87,12 +87,10 @@ SOFTWARE. */
 
 .typo a {
   color: #009688;
-  border-bottom: 1px solid #1abc9c;
 }
 
 .typo a:hover {
-  border-bottom-color: #555;
-  color: #555;
+  border-bottom: 2px solid #1abc9c;
   text-decoration: none;
 }
 
@@ -222,16 +220,23 @@ h6 {
 
 .typo h2,
 .typo-h2 {
+  padding-left: 0.5em;
+  border-left: 6px solid #dd5158;
   font-size: 1.8em;
+  font-weight: 400;
 }
 
 .typo h3,
 .typo-h3 {
+  padding-left: 0.5em;
+  border-left: 4px solid #dd5158;
   font-size: 1.6em;
 }
 
 .typo h4,
 .typo-h4 {
+  padding-left: 0.3em;
+  border-left: 2px solid #009688;
   font-size: 1.4em;
 }
 
@@ -252,7 +257,6 @@ h6 {
 .typo ol,
 .typo-ol {
   list-style: decimal;
-  margin-left: 1.9em;
 }
 
 .typo li ul,
