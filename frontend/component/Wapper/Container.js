@@ -17,7 +17,9 @@ class Container extends Component {
     // fetch('/api')
     //   .then(res => res.json())
     //   .then(articles => this.setState({ articles }));
-    fetch('https://api.github.com/repos/naseeihity/LearnToLearn/issues')
+    fetch(
+      'https://api.github.com/repos/naseeihity/LearnToLearn/issues?page=1&per_page=100'
+    )
       .then(res => res.json())
       .then(articles =>
         this.setState({
