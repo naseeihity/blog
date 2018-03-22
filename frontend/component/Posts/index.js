@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Typography from 'material-ui/Typography';
 import { NavigateNext, NavigateBefore } from 'material-ui-icons';
+import { CircularProgress } from 'material-ui/Progress';
 import qs from 'query-string';
 import { Link } from 'react-router-dom';
 import PaginationBoxView from '../utils/paginate';
@@ -16,7 +17,7 @@ class Posts extends Component {
       currentPage: 1,
       pageSize: 4,
       pageCount: 1,
-      loading: true
+      finish: false
     };
     this.getArticles = this.getArticles.bind(this);
   }
@@ -41,6 +42,7 @@ class Posts extends Component {
     }
 
     if (nextProps.match && !Object.is(nextProps.match, this.props.match)) {
+      this.setState({ finish: false });
       this.getArticles(nextProps.match.params.page);
     }
   }
@@ -61,13 +63,14 @@ class Posts extends Component {
         this.setState({
           articles,
           pageCount: Math.ceil(this.props.total / this.state.pageSize),
-          currentPage: opts.page
+          currentPage: opts.page,
+          finish: true
         })
       );
   }
 
   render() {
-    const { articles, pageCount, currentPage } = this.state;
+    const { articles, pageCount, currentPage, finish } = this.state;
     return (
       <div>
         <Typography
@@ -78,35 +81,43 @@ class Posts extends Component {
         >
           LATEST POSTS
         </Typography>
-        <PostList articles={articles} />
-        <div className={styles.post_paginate}>
-          <PaginationBoxView
-            to="/pages"
-            previousLabel={
-              <NavigateBefore
-                viewBox={'0 0 25 25'}
-                className={styles.post_paginate_icon}
+        {finish ? (
+          <div>
+            <PostList articles={articles} />
+            <div className={styles.post_paginate}>
+              <PaginationBoxView
+                to="/pages"
+                previousLabel={
+                  <NavigateBefore
+                    viewBox={'0 0 25 25'}
+                    className={styles.post_paginate_icon}
+                  />
+                }
+                nextLabel={
+                  <NavigateNext
+                    viewBox={'0 0 25 25'}
+                    className={styles.post_paginate_icon}
+                  />
+                }
+                breakLabel={<Link to="/pages">...</Link>}
+                breakClassName={'break-me'}
+                activeClassName={styles.post_paginate_active}
+                pageCount={pageCount}
+                initialPage={0}
+                forcePage={currentPage - 1}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={3}
+                containerClassName={'pagination'}
+                disabledClassName={styles.post_paginate_disabled}
+                subContainerClassName={'pages pagination'}
               />
-            }
-            nextLabel={
-              <NavigateNext
-                viewBox={'0 0 25 25'}
-                className={styles.post_paginate_icon}
-              />
-            }
-            breakLabel={<Link to="/pages">...</Link>}
-            breakClassName={'break-me'}
-            activeClassName={styles.post_paginate_active}
-            pageCount={pageCount}
-            initialPage={0}
-            forcePage={currentPage - 1}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={3}
-            containerClassName={'pagination'}
-            disabledClassName={styles.post_paginate_disabled}
-            subContainerClassName={'pages pagination'}
-          />
-        </div>
+            </div>
+          </div>
+        ) : (
+          <div className={styles.post_progress}>
+            <CircularProgress size={70} color="secondary" />
+          </div>
+        )}
       </div>
     );
   }
