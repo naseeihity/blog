@@ -250,7 +250,7 @@ h6 {
 /* 在文章中，应该还原 ul 和 ol 的样式 */
 .typo ul,
 .typo-ul {
-  margin-left: 1.3em;
+  margin-left: 0.1em;
   list-style: disc;
 }
 
@@ -266,7 +266,6 @@ h6 {
 .typo-ol ul,
 .typo-ol ol {
   margin-bottom: 0.8em;
-  margin-left: 2em;
 }
 
 .typo li ul,
@@ -333,4 +332,21 @@ caption {
 /* Responsive images */
 .typo img {
   max-width: 100%;
+}
+
+.article_progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  padding: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.article_time {
+  color: #999;
+  margin: 0 0 30px;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
 }
