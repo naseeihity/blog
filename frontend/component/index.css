@@ -4,9 +4,3 @@ body {
   font-family: sans-serif;
   background-color: #f8f8f8;
 }
-
-@media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-  html {
-    font-size: 10px;
-  }
-}
