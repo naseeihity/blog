@@ -49,6 +49,7 @@ class Posts extends Component {
 
   getArticles(page = 1, pageSize) {
     const opts = {
+      assignee: 'naseeihity',
       per_page: pageSize || this.state.pageSize,
       page: page || this.props.match.params.page
     };

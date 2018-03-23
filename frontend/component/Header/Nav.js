@@ -16,7 +16,7 @@ class MenuAppBar extends React.Component {
     super(props);
     this.state = {
       headerFixed: false,
-      auth: true,
+      auth: false,
       anchorEl: null
     };
     this.changeHeader = this.changeHeader.bind(this);
