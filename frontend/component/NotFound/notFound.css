@@ -1,0 +1,11 @@
+.notFound_title {
+  font-size: 20rem;
+  font-weight: 300;
+  color: #bf4b53;
+  text-align: center;
+}
+
+.notFound_subTitle {
+  text-align: center;
+  padding-bottom: 100px;
+}
