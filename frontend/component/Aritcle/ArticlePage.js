@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import Ribbon from '../Ribbon';
 import Article from './Article';
+import NoMatch from '../NotFound';
 
 import styles from '../Wapper/container.css';
 
@@ -23,13 +24,17 @@ class ArticlePage extends Component {
     return (
       <div>
         <Ribbon curArticle={curArticle} hasSub={false} />
-        <div className={styles.container_main}>
-          <div className={styles.container_box}>
-            <Paper className={styles.container_context} elevation={5}>
-              <Article article={curArticle} />
-            </Paper>
+        {curArticle ? (
+          <div className={styles.container_main}>
+            <div className={styles.container_box}>
+              <Paper className={styles.container_context} elevation={5}>
+                <Article article={curArticle} />
+              </Paper>
+            </div>
           </div>
-        </div>
+        ) : (
+          <NoMatch noRibbon={true} />
+        )}
       </div>
     );
   }

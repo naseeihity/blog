@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import Typography from 'material-ui/Typography';
 import { NavigateNext, NavigateBefore } from 'material-ui-icons';
 import { CircularProgress } from 'material-ui/Progress';
@@ -6,6 +7,7 @@ import qs from 'query-string';
 import { Link } from 'react-router-dom';
 import PaginationBoxView from '../utils/paginate';
 import PostList from './PostList';
+import NoMatch from '../NotFound';
 
 import styles from './post.css';
 
@@ -17,7 +19,8 @@ class Posts extends Component {
       currentPage: 1,
       pageSize: 4,
       pageCount: 1,
-      finish: false
+      finish: false,
+      noMatch: false
     };
     this.getArticles = this.getArticles.bind(this);
   }
@@ -60,19 +63,31 @@ class Posts extends Component {
       )}`
     )
       .then(res => res.json())
-      .then(articles =>
+      .then(
+        articles =>
+          _.isEmpty(articles)
+            ? this.setState({
+                noMatch: true
+              })
+            : this.setState({
+                articles,
+                pageCount: Math.ceil(this.props.total / this.state.pageSize),
+                currentPage: opts.page,
+                finish: true
+              })
+      )
+      .catch(() => {
         this.setState({
-          articles,
-          pageCount: Math.ceil(this.props.total / this.state.pageSize),
-          currentPage: opts.page,
-          finish: true
-        })
-      );
+          noMatch: true
+        });
+      });
   }
 
   render() {
-    const { articles, pageCount, currentPage, finish } = this.state;
-    return (
+    const { articles, pageCount, currentPage, finish, noMatch } = this.state;
+    return noMatch ? (
+      <NoMatch noRibbon={true} />
+    ) : (
       <div>
         <Typography
           align="center"

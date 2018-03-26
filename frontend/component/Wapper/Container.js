@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PostPage from '../Posts/PostPage';
 import ArticlePage from '../Aritcle/ArticlePage';
+import NoMatch from '../NotFound';
 
 class Container extends Component {
   constructor(props) {
@@ -55,6 +56,7 @@ class Container extends Component {
               />
             )}
           />
+          <Route component={NoMatch} />
         </Switch>
       </div>
     );
