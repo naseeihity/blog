@@ -51,6 +51,7 @@
     "react-jss": "^8.3.3",
     "react-lowlight": "^1.0.2",
     "react-markdown": "^3.3.0",
+    "react-motion": "^0.5.2",
     "react-paginate": "^5.1.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
