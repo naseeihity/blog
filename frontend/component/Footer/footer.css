@@ -1,0 +1,19 @@
+.footer_container {
+  background-color: #f8f8f8;
+  font-size: 14px;
+  text-align: center;
+  margin: 40px 0 0;
+  padding: 40px;
+  color: #333;
+  line-height: 2;
+}
+
+.footer_container p {
+  margin: 0;
+}
+
+.footer_icon {
+  color: red;
+  font-size: 12px;
+  margin: 0 5px;
+}
