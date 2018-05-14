@@ -37,3 +37,34 @@
 .header_link {
   line-height: 0;
 }
+
+.header_drawerPaper {
+  position: relative;
+  width: 320px;
+}
+
+.header_drawerHeader {
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 7px 8px;
+}
+.contentShift {
+  transition: margin 0.5s ease-out;
+}
+.header_shiftLeft {
+  composes: contentShift;
+  margin-left: 320px;
+  width: calc(100% - 320px);
+}
+
+.header_shiftRight {
+  composes: contentShift;
+  margin-left: 0;
+  width: 100%;
+}
+
+.header_hideMenu {
+  display: none;
+}
