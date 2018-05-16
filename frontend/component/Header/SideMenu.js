@@ -42,7 +42,7 @@ class SideMenu extends Component {
           </IconButton>
         </div>
         <Divider />
-        <List>{mailFolderListItems}</List>
+        <List onClick={this.sideMenuClose}>{mailFolderListItems}</List>
       </Drawer>
     );
   }
