@@ -19,12 +19,14 @@ const mailFolderListItems = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
-    <ListItem button>
-      <ListItemIcon>
-        <ImageIcon />
-      </ListItemIcon>
-      <ListItemText primary="Gallery" />
-    </ListItem>
+    <Link to="/gallery">
+      <ListItem button>
+        <ListItemIcon>
+          <ImageIcon />
+        </ListItemIcon>
+        <ListItemText primary="Gallery" />
+      </ListItem>
+    </Link>
     <Link to="/about">
       <ListItem button>
         <ListItemIcon>
