@@ -68,3 +68,8 @@
 .header_hideMenu {
   display: none;
 }
+
+.header_hoverLink a:hover {
+  text-decoration: none;
+  font-weight: bolder;
+}

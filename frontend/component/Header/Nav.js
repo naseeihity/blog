@@ -24,6 +24,7 @@ class MenuAppBar extends Component {
     this.changeHeader = this.changeHeader.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,11 @@ class MenuAppBar extends Component {
 
   handleDrawerClose(close) {
     this.setState({ sideMenuOpen: close });
+    this.props.changeSideMenu(false);
+  }
+
+  changePage() {
+    this.setState({ sideMenuOpen: false });
     this.props.changeSideMenu(false);
   }
 
