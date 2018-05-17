@@ -41,7 +41,7 @@ class About extends Component {
                   </Tooltip>
                 </Button>
                 <Button aria-label="github">
-                  <Tooltip title="github" placement="right">
+                  <Tooltip title="Github" placement="right">
                     <a href="https://github.com/naseeihity/">
                       <GithubCircle />
                     </a>

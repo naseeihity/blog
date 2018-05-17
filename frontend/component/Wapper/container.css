@@ -88,3 +88,14 @@
   border: none;
   overflow: auto;
 }
+
+.img_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img_box::after {
+  content: '';
+  flex-grow: 1e4;
+  min-width: 20%;
+}

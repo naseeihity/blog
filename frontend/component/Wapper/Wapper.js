@@ -4,6 +4,7 @@ import Container from './Container';
 import Nav from '../Header/Nav';
 import FootInfo from '../Footer/Footer';
 import About from '../About/About';
+import Gallery from '../Gallery/Gallery';
 import BackToTop from '../utils/backToTop/BackToTop';
 import styles from './container.css';
 
@@ -32,6 +33,7 @@ class Wapper extends Component {
         <div className={leftMargin}>
           <Switch>
             <Route path="/about" component={About} />
+            <Route path="/gallery" component={Gallery} />
             <Route component={Container} />
           </Switch>
         </div>
