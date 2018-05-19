@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import styles from './lazyImg.css';
 
+require('intersection-observer');
+
 const IMG_S = '?imageView2/2/w/30/h/20/interlace/0/q/100';
+
+if (!('MutationObserver' in window)) {
+  IntersectionObserver.prototype.POLL_INTERVAL =
+    IntersectionObserver.prototype.THROTTLE_TIMEOUT || 100;
+}
 
 class LazyImg extends Component {
   constructor(props) {
