@@ -65,3 +65,4 @@ cd frontend && npm start
 * [ ] a simple management page(may use redux)
 * [ ] save and get the articles by postgresql and sequelize
 * [ ] mobile adaptation
+* [ ] add test by Jest
