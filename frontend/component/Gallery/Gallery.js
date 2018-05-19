@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
 import Ribbon from '../Ribbon';
 import tileData from './mock';
 import LazyImg from '../utils/lazyImg/LazyImg';
