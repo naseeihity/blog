@@ -10,7 +10,7 @@ material design and UI inspired by [typography](http://typography-themexpose.blo
 
 ![](./doc/img/article.jpg)
 
-use `[Prism](http://prismjs.com/)` for code highlight
+use [Prism](http://prismjs.com/) for code highlight
 
 ## Techs
 
@@ -66,3 +66,4 @@ cd frontend && npm start
 * [ ] save and get the articles by postgresql and sequelize
 * [ ] mobile adaptation
 * [ ] add test by Jest
+* [ ] support search in blog
